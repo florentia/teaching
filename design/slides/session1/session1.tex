@@ -1,0 +1,93 @@
+\documentclass{beamer}
+\usetheme[pageofpages=/,
+          titleline=true,
+          alternativetitlepage=true,% Use the fancy title page.
+          ]{Torino}
+\usecolortheme{metascale}
+\usepackage{listings}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Mapping=tex-text}
+  \setsansfont[ItalicFont={GillSansMTPro-BookItalic}]{GillSansMTPro-Book}
+  \setmonofont{Inconsolata}
+  \newcommand{\codefont}{\ttfamily}
+\else
+  \usepackage[utf8x]{inputenc}
+  \usepackage[nott]{inconsolata}
+  \newcommand{\codefont}{\fontfamily{fi4}\selectfont}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage[frenchb]{babel}
+
+\lstset{language=c++,
+        basicstyle=\tiny,
+        tabsize=2,
+        showstringspaces=false,
+        frame=leftline,
+        columns=fullflexible,
+        keywordstyle=\color[rgb]{0.64,0.13,0.11},
+        commentstyle=\color[rgb]{0.27,0.27,0.28},
+        stringstyle=\color[rgb]{0.82,0.16,0.14},
+        columns=fixed
+        }
+
+\title{Software Design - Session 1}
+\subtitle{Designing SOLID Softwares  - Part 1/2}
+\author{Joel Falcou}
+\institute{Laboratoire de Recherche en Informatique - Université Paris Sud 11}
+\date{}
+
+\pgfdeclareimage[interpolate=true,height=7cm]{solid}{../../../media/solid}
+\pgfdeclareimage[interpolate=true,height=7cm]{single}{../../../media/solid-1}
+\pgfdeclareimage[interpolate=true,height=7cm]{openclose}{../../../media/solid-2}
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+\section{Why Designing SOLID ?}
+\frame
+{
+  \frametitle{Why Designing SOLID ?}
+  \begin{center}\pgfuseimage{solid}\end{center}
+}
+
+\frame
+{
+
+}
+
+\frame
+{
+  \frametitle{Additional Reference Materials}
+}
+
+\section{<S>ingle Resposability}
+\frame
+{
+  \frametitle{The Single Responsability Principle}
+  \begin{center}\pgfuseimage{single}\end{center}
+}
+
+\frame
+{
+
+}
+
+\section{<O>pen/Closed}
+\frame
+{
+  \frametitle{The Open/Closed Principle}
+  \begin{center}\pgfuseimage{openclose}\end{center}
+}
+
+\frame{}
+
+
+\end{document}
+
+

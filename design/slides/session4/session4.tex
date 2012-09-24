@@ -1,0 +1,72 @@
+\documentclass{beamer}
+\usetheme[pageofpages=/,
+          titleline=true,
+          alternativetitlepage=true,% Use the fancy title page.
+          ]{Torino}
+\usecolortheme{metascale}
+\usepackage{listings}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Mapping=tex-text}
+  \setsansfont[ItalicFont={GillSansMTPro-BookItalic}]{GillSansMTPro-Book}
+  \setmonofont{Inconsolata}
+  \newcommand{\codefont}{\ttfamily}
+\else
+  \usepackage[utf8x]{inputenc}
+  \usepackage[nott]{inconsolata}
+  \newcommand{\codefont}{\fontfamily{fi4}\selectfont}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage[frenchb]{babel}
+
+\lstset{language=c++,
+        basicstyle=\tiny,
+        tabsize=2,
+        showstringspaces=false,
+        frame=leftline,
+        columns=fullflexible,
+        keywordstyle=\color[rgb]{0.64,0.13,0.11},
+        commentstyle=\color[rgb]{0.27,0.27,0.28},
+        stringstyle=\color[rgb]{0.82,0.16,0.14},
+        columns=fixed
+        }
+
+\title{Software Design - Session 1}
+\subtitle{The GoF Design Patterns - Part 2/3}
+\author{Joel Falcou}
+\institute{Laboratoire de Recherche en Informatique - Université Paris Sud 11}
+\date{}
+
+\begin{document}
+
+\section{Last Week on Design Patterns ...}
+\frame
+{
+  \frametitle{Last Week on Design Patterns ...}
+}
+
+\frame{}
+
+\section{Composite Pattern}
+\frame
+{
+  \frametitle{The Composite Pattern}
+}
+
+\frame
+{
+
+}
+
+\section{Visitor Pattern}
+\frame
+{
+  \frametitle{The Visitor Pattern}
+}
+
+\frame{}
+
+\end{document}

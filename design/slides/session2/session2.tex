@@ -1,0 +1,89 @@
+\documentclass{beamer}
+\usetheme[pageofpages=/,
+          titleline=true,
+          alternativetitlepage=true,% Use the fancy title page.
+          ]{Torino}
+\usecolortheme{metascale}
+\usepackage{listings}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Mapping=tex-text}
+  \setsansfont[ItalicFont={GillSansMTPro-BookItalic}]{GillSansMTPro-Book}
+  \setmonofont{Inconsolata}
+  \newcommand{\codefont}{\ttfamily}
+\else
+  \usepackage[utf8x]{inputenc}
+  \usepackage[nott]{inconsolata}
+  \newcommand{\codefont}{\fontfamily{fi4}\selectfont}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage[frenchb]{babel}
+
+\lstset{language=c++,
+        basicstyle=\tiny,
+        tabsize=2,
+        showstringspaces=false,
+        frame=leftline,
+        columns=fullflexible,
+        keywordstyle=\color[rgb]{0.64,0.13,0.11},
+        commentstyle=\color[rgb]{0.27,0.27,0.28},
+        stringstyle=\color[rgb]{0.82,0.16,0.14},
+        columns=fixed
+        }
+
+\title{Software Design - Session 1}
+\subtitle{Designing SOLID Software - Part 2/2}
+\author{Joel Falcou}
+\institute{Laboratoire de Recherche en Informatique - Université Paris Sud 11}
+\date{}
+
+\pgfdeclareimage[interpolate=true,height=7cm]{liskov}{../../../media/solid-3}
+\pgfdeclareimage[interpolate=true,height=7cm]{interface}{../../../media/solid-4}
+\pgfdeclareimage[interpolate=true,height=7cm]{dependency}{../../../media/solid-5}
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\section{Last Week on Designing SOLID ...}
+\frame
+{
+  \frametitle{Last Week on Designing SOLID ...}
+}
+
+\section{<L>iskov Substitution}
+\frame
+{
+  \frametitle{The Liskov Substitution Principle}
+  \begin{center}\pgfuseimage{liskov}\end{center}
+}
+
+\frame
+{
+
+}
+
+\section{<I>nterface Segregation}
+\frame
+{
+  \frametitle{The Interface Segregation Principle}
+  \begin{center}\pgfuseimage{interface}\end{center}
+}
+
+\frame{}
+
+\section{<D>ependency Inversion}
+\frame
+{
+  \frametitle{The Dependency Inversion Principle}
+  \begin{center}\pgfuseimage{dependency}\end{center}
+}
+
+\frame{}
+
+\end{document}
