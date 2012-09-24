@@ -1,0 +1,28 @@
+Modern Software Design
+201 SOLID Design (1) 
+ * Why Designing SOLID ?
+ * <S>ingle Responsability
+ * <O>pen/Closed Principle
+ 
+202 SOLID Design (2)
+ * <L>iskov Substitution
+ * <I>nterface Segregation
+ * <D>ependency Inversion
+ 
+203 GoF Design Patterns (1)
+ * Motivation, Pros & Cons
+ * The Factory Pattern
+ * The Strategy Pattern
+
+204 GoF Design Patterns (2)
+ * The Composite Pattern
+ * The Visitor Pattern
+
+205 GoF Design Patterns (3)
+ * The Adaptor Pattern
+ * The Decorator Pattern
+
+206 Anti-Patterns
+ * The Singleton
+ * The God Object
+ * Spotting Anti-Patterns

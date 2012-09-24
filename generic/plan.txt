@@ -1,0 +1,13 @@
+Advanced C++ Design Techniques
+301 Meta-Programming (2)
+ * Boost.MPL
+ * Boost.Fusion
+
+302 Generic Programming
+ * Notion of Concepts
+ * Design, Lift, Generalize
+ * Pitfalls of Generic Programming
+
+303 Embedded Language Design
+ * Expression Templates
+ * Boost.Proto
