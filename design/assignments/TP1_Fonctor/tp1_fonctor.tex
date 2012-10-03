@@ -1,0 +1,62 @@
+\documentclass{tdlayout}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER INFORMATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyhead[R]{Enseignant : J.Falcou (joel.falcou@lri.fr)\\Resp. TP : F.Laguzet (florence.laguzet@lri.fr)}
+\fancyhead[L]{APP4 POO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FOOTER INFORMATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyfoot[L]{POO TP1}
+\fancyfoot[R]{2012-2013}
+\fancyfoot[C]{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\displaytitle{TP1 : Le Design Pattern Fonctor}
+
+\section*{ Les \textit{Fonctor} et le calcul d'intégrales }
+
+\subsubsection*{Implémentation du calcul de l'intégrale}
+Nous allons implémenter le calcul de l'intégrale pour une fonction $f$ choisie.
+Pour cela, nous allons avoir plusieurs manières concernant l'implémentation du calcul de la fonction $f$ : en tant que pointeur de fonction, d'objet contenant une méthode et enfin à l'aide d'un \textit{Fonctor}.\\
+Vous allez donc être amenés à coder 3 fonctions différentes :
+\begin{description}
+\item[compute\_ptr] Fonction prenant en argument un pointeur de fonction et retournant un double
+\item[compute\_class] Fonction prenant en argument un objet et retournant un double
+\item[compute\_fonc] Fonction prenant en argument un \textit{Fonctor} et retournant un double 
+\end{description}
+\hfill \\
+Vos fonctions auront donc comme prototype : \\ 
+\textbf{double} \texttt{compute\_X( < fonction $f$ >, \textbf{double} X, \textbf{double} $\delta_x$)}. \\
+L'intervalle sur laquelle nous allons calculer l'intégrale sera $[X-\delta_x, X+\delta_x]$.\\
+La fonction $f$, quant à elle, est définie comme prenant en paramètre un double et renvoyant un double.\\
+Que remarquez-vous concernant les 3 manières de passer $f$ en paramètre?
+
+\subsubsection*{Temps d'exécution}
+Ensuite, vous allez calculer le temps d'exécution pour chacune des trois méthodes (pointeur, objet et \textit{Fonctor}).
+Pour cela, vous utiliserez la fonction \texttt{gettimeofday} définie dans \texttt{\#include <sys/time.h>}.\\
+Pour son utilisation, se reporter au manuel (\texttt{man gettimeofday}).\\
+Que remarquez-vous concernant les temps d'exécution? 
+
+\subsubsection*{ Rappel : Formule de l'intégration numérique }
+Vous trouverez à l'adresse suivante un rappel concernant le calcul d'intégrales par la méthode des rectangles :
+\textit{http://homeomath.imingo.net/methrect.htm}.\\
+Vous pouvez très bien utiliser une autre méthode (trapèze, Simpson, ...).
+\vspace{1cm}
+
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ >{\raggedright}m{9cm} >{\raggedright}m{9cm}}
+ Soit f la fonction à intégrer et $a$ $b$ les bornes. 
+On a alors $ I(f)=(b-a) f(\xi) $ avec $f$ la fonction pour laquelle nous voulons calculer l'intégrale. 
+& \includegraphics[width=5cm]{pic/methode_rectangles.png}
+\tabularnewline 
+&	\begin{tiny}Source : Wikipedia\end{tiny}\\
+\end{tabular}
+
+
+\end{document}
