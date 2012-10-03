@@ -1,0 +1,141 @@
+\documentclass{tdlayout}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER INFORMATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyhead[R]{Enseignant : J.Falcou (joel.falcou@lri.fr)\\Resp. TP : F.Laguzet (florence.laguzet@lri.fr)}
+\fancyhead[L]{APP4 POO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FOOTER INFORMATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyfoot[L]{POO TP2}
+\fancyfoot[R]{2012-2013}
+\fancyfoot[C]{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\displaytitle{TP2 : Création d'interfaces avec utilisation\\
+des Design Pattern Factory et Prototype}
+
+\section{Le Design Pattern \textit{Factory}}
+
+\subsection*{Présentation}
+Le \emph{Design Pattern \textbf{Factory}} et de manière plus globale l'\emph{\textbf{Abstract Factory}},  (fig.\ref{fig:dp_absfac}). font partie de la famille des \emph{Design Pattern} de Création.
+
+\begin{figure}[!ht]%
+	\begin{center}
+		\includegraphics[width=12cm]{pic/abstract_factory_dp.png}\\
+		\begin{tiny}Source : Wikipedia\end{tiny}
+	\end{center}
+	\caption{Forme générale du Design Pattern Abstract Factory}\label{fig:dp_absfac}%
+\end{figure}
+
+\subsection*{Utilisation du Design Pattern \emph{\textbf{Factory}} : exemple}
+\subsubsection*{Cas pratique}
+Prenons comme exemple une application de stockage des ouvrages d'une bibliothèque.
+Il existe plusieurs manière de stocker les informations qui seront utilisées par l'application : XML, texte brut, MySQL, Access, SQL server, etc. 
+Si nous voulons que cette dernière puisse être utilisée pour plusieurs bibliothèques, cela signifie qu'elle doit permettre d'utiliser différents systèmes d'information et, à fortiori, permettre l'ajout du support d'un autre système d'information. 
+
+\subsubsection*{Schéma succin}
+Le schéma de la figure \ref{fig:absfactory} présente l'architecture logicielle que nous aimerions avoir : une classe abstraite, \texttt{AbsDataManager}, contenant les prototypes des fonctions utilisées dans le reste de l'application. N'importe quelle autre classe de traitement des données peut être ajoutée en plus tant qu'elle implémente la manière d'effectuer chacune des fonctions données.
+Nous avons par ailleurs le \textit{DataManagerFactory} qui est la \textit{Factory} chargée de créer l'instance du DataManager que nous voulons utiliser.
+
+\begin{figure}[!ht]%
+	\begin{center}
+		\includegraphics[width=15cm]{pic/absfact_example.png}\\
+	\end{center}
+	\caption{Design Pattern Factory : Chargement de données}\label{fig:absfactory}%
+\end{figure}
+ 
+Ici, nous avons mis comme exemple dans l'interface commune aux \textit{DataManager} les fonctions les plus courantes pour ce type d'application : 
+\begin{description}
+\item[Load()] Charge les informations 
+\item[Add(Author)] Ajoute un auteur. 
+\item[Add(Book)] Ajoute un livre 
+\item[Remove(Author)] Supprime un auteur 
+\item[Remove(Book)] Supprime un livre 
+\item[Search(string elt)] Cherche tout livre/auteur dont le nom contient la chaine de caractère "elt"
+\item[SaveAll()] Sauvegarde tout le contenu du système d'information.\\
+Selon le type de système d'information, il peut s'agir d'un ajout/modifications en base de donnée (Access, MySQL, Oracle) 
+ou d'écriture dans des fichiers (XML, Text).
+\end{description} 
+
+En ce qui concerne le \textit{DataManagerFactory}, il contient une \textit{hashtable} qui, pour chaque \textit{type} de \textit{DataManager}, appellera la bonne fonction \textit{make} et renverra une erreur au cas où le \textit{type} n'existe pas.
+ 
+ \subsubsection*{Et le passage à l'échelle dans tout ça?}
+Que se passe t-il dans le cas où on veux ajouter un autre \textit{DataManager}, par exemple pour SQLServer?
+Il suffit d'ajouter une classe héritant de \texttt{AbsDataManager}, redéfinissant les fonctions nécessaires. Un ajout est nécessaire dans le code de la \textit{Factory} pour gérer cette nouvelle classe concrète et elle peut ensuite être utilisée comme classe chargeant les données depuis l'application. \\
+Dans le cas de l'interface graphique, que se passe-t-il lorsque si vous voulez ajouter une nouvelle interface, par exemple \textit{OpenGL}? Si vous voulez ajouter un nouveau \textit{Widget}?
+ 
+ 
+\section{Le Design Pattern \textit{Prototype}}
+\subsection*{Présentation}
+Le \emph{Design Pattern \textbf{Prototype}} ,  (fig.\ref{fig:dp_proto}). font partie de la famille des \emph{Design Pattern} de Création.
+
+\begin{figure}[!ht]%
+	\begin{center}
+		\includegraphics[width=12cm]{pic/Prototype_design_pattern.png}\\
+		\begin{tiny}Source : Wikipedia\end{tiny}
+	\end{center}
+	\caption{Forme générale du Design Pattern Prototype}\label{fig:dp_proto}%
+\end{figure}
+
+\subsection*{Utilisation du Design Pattern \emph{\textbf{Prototype}} : exemple}
+En reprenant l'exemple précédent, nous voulons pouvoir utiliser l'application sans connaître par avance la source de donnée que nous allons devoir traiter : XML, texte, SQL etc. Les informations seront données dans un fichier à part, chargé au lancement de l'application.\\
+
+\begin{figure}[!ht]%
+	\begin{center}
+		\includegraphics[width=15cm]{pic/proto_example.png}\\
+	\end{center}
+	\caption{Design Pattern Prototype : Chargement de données}\label{fig:absfactory}%
+\end{figure}
+
+Ici, il n'y a plus de problèmes de modifications du code existant lors de l'ajout de nouvelles classes : lors de l'appel à clone(), la bonne fonction sera appelée et renverra une instance de la classe concrète ainsi construite.
+
+\newpage
+
+\section*{Travail à rendre}
+Vous définirez une interface (ex. formulaire) dont vous donnerez le layout sous forme de schéma.\\
+\underline{Rappel} : on ne demande en aucun cas la gestion des évènements de clic de souris par exemple, tout ce qui nous intéresse ici est l'affichage de l'interface.
+
+\begin{description}
+
+\item[Partie 1 : Factory]\hfill \\
+Dans un premier temps, vous allez devoir implémenter les \textit{Factory} pour la création des \textit{Widgets} en SDL et en mode texte. \\ Vos fonctions auront un nom explicite et chaque \textit{Widget} aura une chaîne d'héritage propre (ex : SDLButton et TxtButton héritent de \textit{AbstractButton} qui contient la fonction make\_button). Quant à l'\textit{Abstract Factory}, elle contiendra une fonction \textit{register} qui enregistrera les \textit{Factory} dans une \textit{hashtable}, ce qui permettra d'avoir l'ensemble des \textit{Factory} présentes dans l'application et les fonctions permettant de les créé (make\_sdl\_interface etc.).
+
+\item[Partie 2 : Prototype]\hfill \\
+On vous demande ici de repartir du travail fait au TP précédent et d'y ajouter le \textit{Design Pattern Prototype} pour gérer les \textit{Widgets}.
+Les \textit{Widget} seront désormais des \textit{Prototype} qu'il sera possible de \textit{cloner}.   
+
+\item[Modalités de rendu]\hfill \\
+Vous devrez envoyer votre travail par mail à florence.laguzet@lri.fr et en copie à joel.falcou@lri.fr (pensez à respecter le formatage de l'objet!!). Devront être présents : une archive du code source avec makefile, un document présentant l'analyse de l'implémentation effectuée des \textit{Design Pattern} (avec mention explicite des modifications apportées pour le passage du TP1 au TP2) et un document présentant les choix éventuels d'implémentations. 
+\textbf{Les deux premiers TP seront à rendre pour le dimanche 25 septembre 23 heure au plus tard (il faut dormir la nuit !).}
+
+\end{description}
+ 
+\section*{Annexe : Fonctionnement de la SDL}
+Pour implémenter la fenêtre en mode graphique, nous allons utiliser une bibliothèque externe nommée SDL (Simple DirectMedia Layer).
+Afin de faciliter l'utilisation de cette dernière, un code présentant les principales fonctions vous sera fourni.\\
+Voici quelques notions de base concernant la SDL :
+\begin{description}
+\item[Initialisation] \hfill \\
+{\ttfamily SDL\_Init(<Options>)} est la fonction permettant d'initialiser le moteur graphique et vérifier que toutes les options nécessaires fonctionnent correctement. Ici, nous n'utilisons que l'option {\ttfamily SDL\_INIT\_VIDEO} car nous n'avons besoin que de l'affichage. D'autres options sont disponibles pour, par exemple, permettre l'utilisation de sons (\texttt{SDL\_INIT\_AUDIO}), la gestion des manettes (\texttt{SDL\_INIT\_JOYSTICK}), etc.
+\item[Création de la fenêtre]\hfill \\
+En SDL, il est nécessaire de créer une surface correspondant à la fenêtre que nous allons utiliser, un genre de canevas sur lequel tout le reste sera collé. La fonction {\ttfamily SDL\_SetVideoMode} initialise cette surface en renvoyant un pointeur sur cette dernière, de type {\ttfamily SDL\_Surface*}.
+\item[Création de surfaces] \hfill \\
+Pour créer par exemple les boutons, il faut créer des surfaces, de type {\ttfamily SDL\_Surface*}, afin de les coller sur la surface principale. C'est le travail de la fonction {\ttfamily SDL\_BlitSurface} qui va dessiner le contenu d'une surface sur une autre.\\
+Attention : lors de l'ajout de surfaces, la position du point haut gauche vous est demandé. 
+En SDL, \textbf{le point en haut à gauche de la fenêtre possède les coordonnées (0,0)}. 
+De plus, toute surface créée explicitement (hors la surface principale) \textbf{doit être explicitement effacée}.
+
+\item[Pour aller plus loin] \hfill \\
+La documentation complète de la SDL est disponible sur le site http://www.libsdl.org/ et une quantité phénoménale de tutoriels sont à votre disposition sur le net.\\
+Cependant, pensez à finir la partie concernant l'analyse et l'implémentation des Design Pattern avant de jouer avec les possibilités de la SDL ;-)
+
+\end{description}
+
+
+\end{document}
