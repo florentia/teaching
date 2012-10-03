@@ -22,7 +22,7 @@
 \def\hang{\hangindent\parindent}
 \def\d@nger{\medbreak\begingroup\clubpenalty=10000
   \def\par{\endgraf\endgroup\medbreak} \noindent\hang\hangafter=-2
-  \hbox to0pt{\hskip-\hangindent\dbend\hfill}}
+  \hbox to2pt{\hskip-\hangindent\dbend\hfill}}
 \outer\def\danger{\d@nger}
 \makeatother
 
@@ -56,23 +56,22 @@ Les dates de rendu vous seront communiquées pour chaque TP. Aucun délais ne sera
 \MakeUppercase {Tout TD \textbf{non rendu \underline{dans les temps}} sera équivalent à une note de 0.}
 
 \paragraph{Contenu}
-Pour chaque TP, il vous est demandé de rendre une archive zip ou tar.gz \underline{pas de format propriétaire !}
-Il en va de même pour le document qui devra impérativement être au format PDF. Tout rendu non conforme se verra attribué une note de 0 pour le TP.
+Pour chaque TP, il vous est demandé de rendre une archive zip ( ou tar.gz ) et le compte rendu qui devra impérativement être au format PDF. \underline{Aucun format propriétaire ne sera pris en compte !}\newline
+Tout rendu non conforme se verra attribué une note de 0 pour le TP.
 
 Vous devrez rendre une archive dépourvue de tout fichier lié à l'IDE que vous utiliserez ainsi que les fichier objets (.o) et exécutable (points négatifs en cas de non respect de cette règle).
 
-Votre archive devra être de la forme suivante :\\
+\noindent Votre archive devra être de la forme suivante :\\
 nom/\\
 \hspace*{1cm} | rapport\_tp.pdf\\
 \hspace*{1cm} $|$ source/\\
 \hspace*{2.5cm}	$|$ Makefile\\
 \hspace*{2.5cm}	$|$	src/ [...]\\
-\hspace*{2.5cm}	$|$	include/ [...]\\
+\hspace*{2.5cm}	$|$	include/ [...]
 
-\paragraph{Mode d'envoi}
+\paragraph{Envoi}
 L'ensemble des documents est à envoyer par mail à \textit{florence.laguzet@lri.fr} avec comme objet du mail "\textbf{[APP4 POO]} TPx NOM" avec x le numéro du TP et NOM votre nom. Tout mail ne respectant pas ce format ne sera pas pris en compte.
 \danger un filtre spécial étant mis en place, il est important de respecter le formatage de l'objet du mail...\\
 Vous recevrez un mail accusant la bonne réception de votre TP.
-
 
 \end{document}
