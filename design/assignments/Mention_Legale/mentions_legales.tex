@@ -1,0 +1,78 @@
+\documentclass{mentionlayout}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER INFORMATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\fancyhead[R]{Enseignant : J.Falcou (joel.falcou@lri.fr)\\Resp. TP : F.Laguzet (florence.laguzet@lri.fr)}
+%\fancyhead[L]{APP4 POO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FOOTER INFORMATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyfoot[L]{Mentions légales}
+\fancyfoot[R]{2012-2013}
+%\fancyfoot[C]{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{manfnt}
+
+\makeatletter
+\def\hang{\hangindent\parindent}
+\def\d@nger{\medbreak\begingroup\clubpenalty=10000
+  \def\par{\endgraf\endgroup\medbreak} \noindent\hang\hangafter=-2
+  \hbox to0pt{\hskip-\hangindent\dbend\hfill}}
+\outer\def\danger{\d@nger}
+\makeatother
+
+\begin{document}
+
+\section*{\center Mentions légales}
+\vspace{1cm}
+\subsection*{Langage de programmation}
+Le langage utilisé devra obligatoirement être le C++. Pour toute utilisation de conteneurs (listes, tableaux) et autres outils usuels, nous vous invitons à utiliser la \textit{STL C++} ou encore \textit{BOOST}.
+
+\subsection*{Travail demandé}
+Pour chaque TP, le rendu comportera deux parties, un compte rendu et le code de votre application.
+
+\paragraph{Compte rendu}
+Ce document présente le diagramme UML détaillé de l'implémentation effectuée. Il devra également contenir les problèmes rencontrés à l'implémentation (avantages et limites de votre implémentation) et autres spécificités du langage (ainsi que tout changements effectués aux éventuels codes fournis). Si vous vous inspirez ou récupérez des bouts de code depuis internet, il faut en faire mention ici.\newline
+Il faut que le lecteur de ce rapport puisse comprendre votre démarche et l'implémentation qui en découle sans avoir à regarder le code source.
+
+\danger Le rapport comptant pour à peu près \textbf{la moitié des points}, il est aussi important dans la note final que l'application.
+
+\paragraph{Code de l'application}
+Il vous est demandé de rendre un \textit{code propre} et \textit{correctement commenté}, comme s'il s'agissait d'un véritable projet client. De plus, un \textbf{Makefile fonctionnel} devra permettre de compiler votre code sur n'importe quelle machine correctement configurés (i.e avec un GCC valide). La machine témoin sera une Debian Stable.
+
+\danger Tout code non commenté ou ne compilant pas sur la machine témoin ne sera pas corrigé : note partie code = 0.
+
+\noindent $\Longrightarrow$ Pour tester la portabilité du code, il suffit d'installer une Debian dans une machine virtuelle. Les machines présentes en salle de TP peuvent également être utilisées comme machine témoin.
+
+\subsection*{Rendu}
+
+\paragraph{Date}
+Les dates de rendu vous seront communiquées pour chaque TP. Aucun délais ne sera accordé sauf cas de force majeure.\\
+\MakeUppercase {Tout TD \textbf{non rendu \underline{dans les temps}} sera équivalent à une note de 0.}
+
+\paragraph{Contenu}
+Pour chaque TP, il vous est demandé de rendre une archive zip ou tar.gz \underline{pas de format propriétaire !}
+Il en va de même pour le document qui devra impérativement être au format PDF. Tout rendu non conforme se verra attribué une note de 0 pour le TP.
+
+Vous devrez rendre une archive dépourvue de tout fichier lié à l'IDE que vous utiliserez ainsi que les fichier objets (.o) et exécutable (points négatifs en cas de non respect de cette règle).
+
+Votre archive devra être de la forme suivante :\\
+nom/\\
+\hspace*{1cm} | rapport\_tp.pdf\\
+\hspace*{1cm} $|$ source/\\
+\hspace*{2.5cm}	$|$ Makefile\\
+\hspace*{2.5cm}	$|$	src/ [...]\\
+\hspace*{2.5cm}	$|$	include/ [...]\\
+
+\paragraph{Mode d'envoi}
+L'ensemble des documents est à envoyer par mail à \textit{florence.laguzet@lri.fr} avec comme objet du mail "\textbf{[APP4 POO]} TPx NOM" avec x le numéro du TP et NOM votre nom. Tout mail ne respectant pas ce format ne sera pas pris en compte.
+\danger un filtre spécial étant mis en place, il est important de respecter le formatage de l'objet du mail...\\
+Vous recevrez un mail accusant la bonne réception de votre TP.
+
+
+\end{document}
